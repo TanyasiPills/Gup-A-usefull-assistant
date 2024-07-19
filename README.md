@@ -1,5 +1,5 @@
 # Gup - Task assistant
-Gup is a little companion who will help to distract you from the things that you actualy want to do.
+Gup is a little companion who will help to distract you from the things that you actually want to do.
 Gup has the ability to:
 * Chase down your cursor and take it to himself
 * Wonder around the wonderfull place that is called your screen
