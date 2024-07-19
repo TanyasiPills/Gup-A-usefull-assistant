@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{ff9d087c-813d-412a-9bd4-d8d8e18eaa39}</ProjectGuid>
+    <RootNamespace>Gup</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Gup_Window.cpp" />
+    <ClCompile Include="Program.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup01.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup02.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup03.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup04.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup05.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup06.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup07.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup08.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup09.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup10.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup11.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup12.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup13.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup14.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup15.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup16.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup17.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup18.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup19.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup20.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup21.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup22.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup23.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup24.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup25.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup26.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup27.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup28.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_filp_gup29.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup01.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup02.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup03.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup04.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup05.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup06.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup07.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup08.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup09.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup10.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup11.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup12.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup13.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup14.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup15.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup16.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup17.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup18.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup19.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup20.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup21.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup22.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup23.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup24.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup25.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup26.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup27.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\l0_gup28.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\memes\cute_gup.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\memes\film_of_gup.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\memes\girl_stealer_gup.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\memes\hiring_gup.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\memes\olympics_gup.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\memes\rank_gup.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\memes\strom_of_gup.png" />
+    <Image Include="..\..\Visible_Pain\Visible_Pain\gupping\memes\summer_gup.png" />
+    <Image Include="D:\letöltések\gup_icon.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
