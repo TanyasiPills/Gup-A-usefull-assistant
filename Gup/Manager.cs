@@ -8,15 +8,18 @@ namespace Gup
     {
         public static Window* Initialization()
         {
-            Console.WriteLine("Gup Initialized");
             GLFW.Init();
             VideoMode* mode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
             int screenWidth = mode->Width;
             int screenHeight = mode->Height;
 
-            GLFW.WindowHint(WindowHintBool.Decorated, true);
+            GLFW.WindowHint(WindowHintBool.Decorated, false);
             GLFW.WindowHint(WindowHintBool.Resizable, true);
             GLFW.WindowHint(WindowHintBool.TransparentFramebuffer, true);
+
+            GLFW.WindowHint(WindowHintBool.MousePassthrough, true);
+            GLFW.WindowHint(WindowHintBool.Floating, true);
+            GLFW.SwapInterval(1);
 
 
             Window* window = GLFW.CreateWindow(screenWidth, screenHeight, "Gup Window", null, null);
@@ -27,7 +30,9 @@ namespace Gup
             GL.Enable(EnableCap.Blend);
             GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
 
-            //GLFW.MaximizeWindow(window);
+            GLFW.MaximizeWindow(window);
+
+            Console.WriteLine("Gup Initialized");
 
             return window;
         }
