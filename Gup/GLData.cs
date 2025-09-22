@@ -1,4 +1,7 @@
 ﻿using OpenTK.Graphics.OpenGL4;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using System.Reflection.Metadata;
 
 namespace Gup
 {
@@ -287,6 +290,89 @@ namespace Gup
 
     internal class Texture
     {
+        int TO = 0;
+        int width = 0;
+        int height = 0;
+        int bpp = 0;
+
+        ~Texture()
+        {
+            GL.DeleteTexture(TO);
+        }
+
+        public void Init(string path)
+        {
+            using (var image = Image.Load<Rgba32>(path))
+            {
+                width = image.Width;
+                height = image.Height;
+
+                byte[] pixels = new byte[width * height * 4];
+                image.CopyPixelDataTo(pixels);
+
+                TO = GL.GenTexture();
+                GL.BindTexture(TextureTarget.Texture2D, TO);
+
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToEdge);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToEdge);
+
+                GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba8, 
+                    width, height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, pixels);
+
+                GL.BindTexture(TextureTarget.Texture2D, 0);
+            }
+        }
+
+        public void Init(byte[] data, int widthIn, int heightIn)
+        {
+            width = widthIn;
+            height = heightIn;
+
+            TO = GL.GenTexture();
+            GL.BindTexture(TextureTarget.Texture2D, TO);
+
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToEdge);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToEdge);
+
+            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba8, 
+                width, height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, data);
+
+            GL.BindTexture(TextureTarget.Texture2D, 0);
+        }
+
+        public void Bind()
+        {
+            GL.BindTexture(TextureTarget.Texture2D, TO);
+        }
+
+        public void Unbind()
+        {
+            GL.BindTexture(TextureTarget.Texture2D, 0);
+        }
+
+        public void BlendCorrection()
+        {
+            Bind();
+
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+
+            Unbind();
+        }
+
+        public void TransparencyCorrection()
+        {
+            Bind();
+
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
+
+            Unbind();
+        }
     }
 
 }
