@@ -13,7 +13,7 @@ namespace Gup
             int screenWidth = mode->Width;
             int screenHeight = mode->Height;
 
-            GLFW.WindowHint(WindowHintBool.Decorated, false);
+            GLFW.WindowHint(WindowHintBool.Decorated, true);
             GLFW.WindowHint(WindowHintBool.Resizable, true);
             GLFW.WindowHint(WindowHintBool.TransparentFramebuffer, true);
 
@@ -26,6 +26,8 @@ namespace Gup
 
             GLFW.MakeContextCurrent(window);
             GL.LoadBindings(new GLFWBindingsContext());
+
+            //GL.Enable(EnableCap.AlphaTest);
 
             GL.Enable(EnableCap.Blend);
             GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);

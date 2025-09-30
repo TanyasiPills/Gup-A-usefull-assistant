@@ -5,7 +5,7 @@ using System.Reflection.Metadata;
 
 namespace Gup
 {
-    struct VertexBufferElement
+    public struct VertexBufferElement
     {
         public uint type;
         public uint count;
@@ -40,7 +40,7 @@ namespace Gup
         }
     }
 
-    internal class  VertexBufferLayout
+    public class  VertexBufferLayout
     {
         private List<VertexBufferElement> elements;
         uint stride;
@@ -66,7 +66,7 @@ namespace Gup
         public List<VertexBufferElement> GetElements() { return elements; }
         public uint GetStride() { return stride; }
     }
-    internal unsafe class VertexBuffer
+    public unsafe class VertexBuffer
     {
         uint VBO;
 
@@ -93,7 +93,7 @@ namespace Gup
         }
     }
 
-    internal class VertexArray
+    public class VertexArray
     {
         uint VAO;
         VertexBufferLayout layout;
@@ -139,12 +139,14 @@ namespace Gup
         }
     }
 
-    internal unsafe class IndexBuffer
+    public unsafe class IndexBuffer
     {
         uint IBO;
+        int count;
 
         public void Init(void* data, int size)
         {
+            count = size;
             GL.GenBuffers(1, out IBO);
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, IBO);
             GL.BufferData(BufferTarget.ElementArrayBuffer, size, (nint)data, BufferUsageHint.StaticDraw);
@@ -164,9 +166,11 @@ namespace Gup
         {
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
         }
+
+        public int GetCount() { return count; }
     }
 
-    internal class Shader
+    public class Shader    
     {
         uint shaderId = 0;
         Dictionary<string, int> uniformLocs;
@@ -288,7 +292,7 @@ namespace Gup
         }
     }
 
-    internal class Texture
+    public class Texture
     {
         int TO = 0;
         int width = 0;

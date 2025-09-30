@@ -12,6 +12,8 @@ namespace Gup
         {
             Window* window = Manager.Initialization();
 
+            Renderer.Equals
+
             while (true)
             {
                 if (GLFW.WindowShouldClose(window) == true)
@@ -19,9 +21,8 @@ namespace Gup
 
                 GLFW.PollEvents();
 
-                GL.ClearColor(0f, 0f, 0f, 0f);
-                GL.Clear(ClearBufferMask.ColorBufferBit);
-                GLFW.SwapBuffers(window);
+
+
             }
             GLFW.DestroyWindow(window);
             GLFW.Terminate();
